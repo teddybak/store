@@ -1,4 +1,3 @@
-import { IOrder } from './../interfaces/order.interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -8,9 +7,9 @@ import { Injectable } from '@angular/core';
 export class OrderService {
   endPointUrl: string = 'http://localhost:3000/orders';
   constructor(private _http: HttpClient) {}
-  saveOrder(order: IOrder) {
+  saveOrder(order: any) {
     return this._http
-      .post<IOrder>(`${this.endPointUrl}`, order)
+      .post<any>(`${this.endPointUrl}`, order)
       .subscribe((data) => {
         console.log(data);
       });

@@ -1,6 +1,5 @@
 import { IEdetaillsOrder } from './interfaces/detailsOrder.interface';
 import { async, waitForAsync } from '@angular/core/testing';
-import { IOrder } from './../products/interfaces/order.interface';
 import { OrderService } from './../products/services/order.service';
 import { IProduct } from './../products/interfaces/product.interface';
 import { IStores } from './interfaces/shop.interface';
@@ -52,9 +51,7 @@ export class CheckoutComponent implements OnInit {
     this.mostrar = evento;
     let detalles: any = [];
     evento.subscribe((data: any) => {
-      data.forEach((element: any, i: any) => {
-
-      });
+      data.forEach((element: any, i: any) => {});
     });
   }
 }

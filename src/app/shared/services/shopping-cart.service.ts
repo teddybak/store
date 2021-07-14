@@ -1,6 +1,7 @@
 import { IStores } from './../../pages/checkout/interfaces/shop.interface';
-import { IProduct } from './../../pages/products/interfaces/product.interface';
+// import { IProduct } from './../../pages/products/interfaces/product.interface';
 import { Injectable } from '@angular/core';
+import { IProduct } from './../../pages/products/interfaces/product.interface';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 

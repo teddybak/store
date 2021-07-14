@@ -196,6 +196,14 @@
       "city": "sevilla",
       "tienda": "",
       "id": 10
+    },
+    {
+      "name": "mohtadi",
+      "pickup": "true",
+      "shippingAddress": "Avenida de la paz",
+      "city": "sevilla",
+      "tienda": "Store Alcalá",
+      "id": 11
     }
   ],
   "detailsOrders": [
