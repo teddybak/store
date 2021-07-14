@@ -1,0 +1,16 @@
+<ng-container
+  *ngIf="{ total: total | async, cantidad: qtyCart | async } as dataCart"
+>
+  <span class="spacer"></span>
+
+  <ng-container *ngIf="dataCart.total != null">
+    <mat-icon>add_shopping_cart</mat-icon>
+    <span *ngIf="total">
+      <a class="blanco" [routerLink]="['/checkout']"
+        >Total {{ dataCart.total | currency: "GBP" }} ({{
+          dataCart.cantidad | number
+        }})</a
+      >
+    </span>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,94 @@
+<div class="container">
+  <form #myForm="ngForm" (ngSubmit)="procesar(myForm.value)" class="form item">
+    <mat-form-field class="form__element">
+      <input
+        matInput
+        placeholder="Name"
+        required
+        ngModel
+        #name="ngModel"
+        name="name"
+      />
+      <mat-error *ngIf="!name.valid && name.touched">
+        Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-radio-group class="form__element">
+      <p>Choose an option:</p>
+      <mat-radio-button
+        class="radio"
+        ngModel
+        #pickup="ngModel"
+        name="pickup"
+        value="true"
+        ngDefaultControl
+        >Pickup</mat-radio-button
+      >
+      <mat-radio-button
+        class="radio"
+        ngModel
+        #delivery="ngModel"
+        name="pickup"
+        ngDefaultControl
+        value="false"
+        >Delivery</mat-radio-button
+      >
+    </mat-radio-group>
+    <br />
+
+    <mat-form-field class="form__element">
+      <input
+        matInput
+        placeholder="Shipping Address"
+        ngModel
+        #shippingAddress
+        name="shippingAddress"
+        required
+      />
+    </mat-form-field>
+    <br />
+    <mat-form-field class="form__element">
+      <input matInput placeholder="City" ngModel #city name="city" required />
+    </mat-form-field>
+
+    <br />
+
+    <mat-form-field
+      appearance="fill"
+      *ngIf="pickup.value"
+      class="form__element"
+    >
+      <mat-label>Select store</mat-label>
+      <mat-select [(ngModel)]="myModel.store" name="tienda" #tienda>
+        <mat-option
+          *ngFor="let store of stores"
+          value="{{ store.name }}"
+          ngDefaultControl
+        >
+          {{ store.name }} {{ store.openingHours }} {{ store.city }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <app-details (emisor)="pro($event)"></app-details>
+
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        *ngIf="myForm.valid"
+      >
+        Submit
+      </button>
+    </mat-card-actions>
+  </form>
+</div>
+<!-- <pre>
+  <h2>Es valido {{myForm.valid}} </h2>
+  <h2>Es submited {{myForm.submitted}} </h2>
+  <h2>values {{myForm.value | json}} </h2>
+  </pre> -->
+
+{{ mostrar | async | json }}

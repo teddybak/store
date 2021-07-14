@@ -1,0 +1,7 @@
+<section class="products">
+  <app-product
+    [prod]="prod"
+    *ngFor="let prod of products"
+    (emisor)="addToCart($event)"
+  ></app-product>
+</section>
